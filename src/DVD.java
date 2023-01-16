@@ -9,9 +9,11 @@ public class DVD extends Empruntable {
     }
 
     public String toString() {
-        return "Titre: " + this.getTitre() +
-                "Director: " + this.director +
-                "Zone géographique: " + this.zone +
-                "Disponible: " + (this.isBorrowed() ? "Oui" : "Non");
+        return "---------- DVD ----------" +
+                "\nTitre: " + this.getTitre() +
+                "\nDirector: " + this.director +
+                "\nZone géographique: " + this.zone +
+                "\nDisponible: " + (!this.isBorrowed() ? "Oui" : "Non") +
+                "\n-------------------------";
     }
 }

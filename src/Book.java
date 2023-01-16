@@ -9,9 +9,11 @@ public class Book extends Empruntable {
     }
 
     public String toString() {
-        return "Titre: " + this.getTitre() +
-                "Auteur: " + this.author +
-                "Genre: " + this.genre +
-                "Disponible: " + (this.isBorrowed() ? "Oui" : "Non");
+        return "---------- Livre ----------\n" +
+                "Titre: " + this.getTitre() +
+                "\nAuteur: " + this.author +
+                "\nGenre: " + this.genre +
+                "\nDisponible: " + (!this.isBorrowed() ? "Oui" : "Non") +
+                "\n--------------------------";
     }
 }

@@ -9,8 +9,10 @@ public class Magazine extends Item {
     }
 
     public String toString() {
-        return "Titre: " + this.getTitre() +
-                "Thème: " + this.weekTheme +
-                "Editeur: " + this.editor;
+        return "---------- Magazine ----------" +
+                "\nTitre: " + this.getTitre() +
+                "\nThème: " + this.weekTheme +
+                "\nEditeur: " + this.editor +
+                "\n-----------------------------";
     }
 }
