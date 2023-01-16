@@ -1,8 +1,10 @@
-public abstract class Empruntable extends Item {
+import java.io.Serializable;
+
+public abstract class Empruntable extends Item implements Serializable {
     private boolean borrowed;
 
-    public Empruntable(String reference, String titre, String type, boolean borrowed) {
-        super(reference, titre, type);
+    public Empruntable(String reference, String titre, boolean borrowed) {
+        super(reference, titre);
         this.borrowed = borrowed;
     }
 
