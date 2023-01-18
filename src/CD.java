@@ -11,9 +11,11 @@ public class CD extends Empruntable implements Serializable {
     }
 
     public String toString() {
-        return "Titre: " + this.getTitre() +
-                "Artiste: " + this.artist +
-                "Nombre de pistes: " + this.nbOfTracks +
-                "Disponible: " + (this.isBorrowed() ? "Oui" : "Non");
+        return "---------- CD ----------\n" +
+                "Titre: " + this.getTitre() +
+                "\nArtiste: " + this.artist +
+                "\nNombre de pistes: " + this.nbOfTracks +
+                "\nDisponible: " + (!this.isBorrowed() ? "Oui" : "Non") +
+                "\n------------------------";
     }
 }
