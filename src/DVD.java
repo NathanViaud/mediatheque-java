@@ -10,6 +10,14 @@ public class DVD extends Empruntable implements Serializable {
         this.zone = zone;
     }
 
+    public String getDirector() {
+        return director;
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
     public String toString() {
         return "---------- DVD ----------" +
                 "\nTitre: " + this.getTitre() +

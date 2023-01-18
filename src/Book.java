@@ -10,6 +10,16 @@ public class Book extends Empruntable implements Serializable {
         this.genre = genre;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+
+
     public String toString() {
         return "---------- Livre ----------\n" +
                 "Titre: " + this.getTitre() +

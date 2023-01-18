@@ -10,6 +10,14 @@ public class CD extends Empruntable implements Serializable {
         this.artist = artist;
     }
 
+    public int getNbOfTracks() {
+        return nbOfTracks;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
     public String toString() {
         return "---------- CD ----------\n" +
                 "Titre: " + this.getTitre() +

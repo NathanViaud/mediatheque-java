@@ -29,6 +29,12 @@ public class Mapper {
         return  result;
     }
 
+    public void insertIntoBook(String author, String genre, String reference, String title, boolean borrowed) throws SQLException {
+        String sql = String.format("INSERT INTO book(author, genre, reference, title, borrowed)VALUES( \"%s\", \"%s\", \"%s\", \"%s\", %b)",author, genre, reference, title, borrowed);
+        this.statement.execute(sql);
+
+    }
+
     public List<CD> cdMapper() throws SQLException{
 
         ResultSet resultSet = this.statement.executeQuery("SELECT * FROM cd");
@@ -46,6 +52,12 @@ public class Mapper {
         }
         return result;
     }
+
+    public void insertIntoCD(String artist, int nbOfTracks, String reference, String title, boolean borrowed) throws SQLException {
+        String sql = String.format("INSERT INTO cd(nb_of_tracks, artist, reference, title, borrowed)VALUES(\"%d\", \"%s\", \"%s\", \"%s\", %b)",nbOfTracks, artist, reference, title, borrowed);
+        this.statement.execute(sql);
+    }
+
 
     public List<DVD> dvdMapper() throws SQLException{
         ResultSet resultSet = this.statement.executeQuery("SELECT * FROM dvd");
@@ -65,6 +77,11 @@ public class Mapper {
         return result;
     }
 
+    public void insertIntoDVD(String producer, String zone, String reference, String title, boolean borrowed) throws SQLException {
+        String sql = String.format("INSERT INTO dvd(producer, zone, reference, title, borrowed) VALUES( \"%s\", \"%s\", \"%s\", \"%s\", %b)",producer, zone, reference, title, borrowed);
+        this.statement.execute(sql);
+    }
+
     public List<Magazine> magazineMapper() throws SQLException {
         ResultSet resultSet = this.statement.executeQuery("SELECT * FROM magazine");
 
@@ -75,12 +92,16 @@ public class Mapper {
             final String reference = resultSet.getString("reference");
             final String title = resultSet.getString("title");
             final String weekTheme = resultSet.getString("weekTheme");
-            final String zone = resultSet.getString("zone");
+            final String editor = resultSet.getString("editor");
 
-            result.add(new Magazine(reference, title, weekTheme, zone));
+            result.add(new Magazine(reference, title, weekTheme, editor));
         }
         return result;
     }
 
+    public void insertIntoMagazine(String editor, String weekTheme, String reference, String title) throws SQLException {
+        String sql = String.format("INSERT INTO magazine(editor, weekTheme, reference, title) VALUES(\"%s\", \"%s\", \"%s\", \"%s\")", editor, weekTheme, reference, title);
+        this.statement.execute(sql);
+    }
 
 }

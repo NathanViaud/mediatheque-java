@@ -10,6 +10,14 @@ public class Magazine extends Item implements Serializable {
         this.editor = editor;
     }
 
+    public String getWeekTheme() {
+        return weekTheme;
+    }
+
+    public String getEditor() {
+        return editor;
+    }
+
     public String toString() {
         return "---------- Magazine ----------" +
                 "\nTitre: " + this.getTitre() +
