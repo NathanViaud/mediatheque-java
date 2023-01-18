@@ -20,7 +20,6 @@ public class Main {
 
         out.writeObject(v);
         out.close();
-
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName));
         v = (Vector<Item>)in.readObject();
         for(Item i: v) {
