@@ -1,9 +1,12 @@
-public class Book extends Empruntable {
+import java.io.Serializable;
+
+public class Book extends Empruntable implements Serializable {
+    private int id;
     private String author;
     private String genre;
 
-    public Book(String reference, String titre, String type, boolean borrowed, String author, String genre) {
-        super(reference, titre, type, borrowed);
+    public Book(String reference, String titre, boolean borrowed, String author, String genre) {
+        super(reference, titre, borrowed);
         this.author = author;
         this.genre = genre;
     }

@@ -1,9 +1,11 @@
-public class Magazine extends Item {
+import java.io.Serializable;
+
+public class Magazine extends Item implements Serializable {
     private String weekTheme;
     private String editor;
 
-    public Magazine(String reference, String titre, String type, String weekTheme, String editor) {
-        super(reference, titre, type);
+    public Magazine(String reference, String titre, String weekTheme, String editor) {
+        super(reference, titre);
         this.weekTheme = weekTheme;
         this.editor = editor;
     }

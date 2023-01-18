@@ -26,9 +26,26 @@ public class Main {
             System.out.println(i.toString());
         }
         in.close();
+        
+        
+        try{
+
+
+            Mapper mapper = new Mapper();
+
+            List<Book> allBooks = mapper.bookMapper();
+
+            System.out.println(allBooks.isEmpty());
+
+            allBooks.forEach(System.out::println);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public static String generateRef() {
-        return UUID.randomUUID().toString();
-    }
+}
+
+public static String generateRef() {
+    return UUID.randomUUID().toString();
 }

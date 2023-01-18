@@ -3,12 +3,10 @@ import java.io.Serializable;
 public abstract class Item implements Serializable {
     private String reference;
     private String titre;
-    private String type;
 
-    public Item(String reference, String titre, String type) {
+    public Item(String reference, String titre) {
         this.reference = reference;
         this.titre = titre;
-        this.type = type;
     }
 
     public String getReference() {
@@ -19,7 +17,4 @@ public abstract class Item implements Serializable {
         return titre;
     }
 
-    public String getType() {
-        return type;
-    }
 }
