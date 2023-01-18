@@ -1,0 +1,7 @@
+INSERT INTO book(author, genre, reference, title, borrowed) values ("Marcel Proust", "Science Fiction", "123", "In search of Lost time", false), ("James Joyce", "Polar", "456", "Ulysses", false), ("Miguel de Cervantes", "Roman", "789", "Don Quixote", true), ("Gabreil Garcia Marquez", "Roman", "789", "Cien años de soledad", true);
+
+INSERT INTO cd(nb_of_tracks, artist, reference, title, borrowed) values (15, "Mora", "000", "Microdosis", true), (23, "Bad Bunny", "def", "Un Verano Sin Ti", true), (16, "Drake", "ghi", "Her Loss", false), (13, "Kanye West", "jkl", "My Beautiful Dark Twisted Fantasy", false);
+
+INSERT INTO dvd(producer, zone, reference, title, borrowed) values ("Frank Darabont", "EU", "aze", "Les évadés", false), ("Francis Ford Coppola", "EU", "wxc", "Le Parrain", true), ("Christopher Nolan", "AMERICA", "pml", "The Dark Knight : Le Chevalier noir", true), ("Steven Spielberg", "AMERICA", "lsp", "La liste de Schindler", false);
+
+INSERT INTO magazine(editor, weekTheme, reference, title) values ("TIME", "Argentine", "osl", "Argentine champion du monde"), ("People", "Football", "gjf", "Messi meilleur joueur de l'histoire"), ("Cosmopolitan", "Shakira", "gsb", "Shakira top 1 mondial avec nouvelle chanson sur Pique"), ("Men's Health", "Perte de poids", "sjq", "Comment perdre du poids en deux semaines !");

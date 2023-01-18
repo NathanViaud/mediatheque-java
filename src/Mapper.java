@@ -29,7 +29,9 @@ public class Mapper {
         return  result;
     }
 
-    public List<CD> CdMapper(ResultSet resultSet) throws SQLException{
+    public List<CD> cdMapper() throws SQLException{
+
+        ResultSet resultSet = this.statement.executeQuery("SELECT * FROM cd");
         final List<CD> result = new ArrayList<>();
 
         while (resultSet.next()){
@@ -45,7 +47,9 @@ public class Mapper {
         return result;
     }
 
-    public List<DVD> DvdMapper(ResultSet resultSet) throws SQLException{
+    public List<DVD> dvdMapper() throws SQLException{
+        ResultSet resultSet = this.statement.executeQuery("SELECT * FROM dvd");
+
         final List<DVD> result = new ArrayList<>();
 
         while(resultSet.next()){
@@ -57,6 +61,23 @@ public class Mapper {
             final String zone = resultSet.getString("zone");
 
             result.add(new DVD(reference, title,borrowed, producer, zone));
+        }
+        return result;
+    }
+
+    public List<Magazine> magazineMapper() throws SQLException {
+        ResultSet resultSet = this.statement.executeQuery("SELECT * FROM magazine");
+
+        final List<Magazine> result = new ArrayList<>();
+
+        while(resultSet.next()){
+            // DVD attributes
+            final String reference = resultSet.getString("reference");
+            final String title = resultSet.getString("title");
+            final String weekTheme = resultSet.getString("weekTheme");
+            final String zone = resultSet.getString("zone");
+
+            result.add(new Magazine(reference, title, weekTheme, zone));
         }
         return result;
     }

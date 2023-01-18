@@ -5,7 +5,7 @@ use mediatheque;
 CREATE TABLE IF NOT EXISTS magazine(
     id int NOT NULL primary key AUTO_INCREMENT,
     editor varchar(255) NOT NULL,
-    publication_date date NOT NULL,
+    weekTheme varchar(255) NOT NULL,
     reference varchar(255) NOT NULL,
     title varchar(255) NOT NULL
 );

@@ -1,51 +1,61 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.Vector;
 
 public class Main {
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Book b1 = new Book(generateRef(), "Nouveau Livre", "book", false, "Nathan", "polar" ) ;
-        CD cd1 = new CD(generateRef(), "Album", "cd", false, 47, "CarlosBaila");
-        DVD dvd1 = new DVD(generateRef(), "Shrek", "dvd", true, "Moi", "EU");
-        Magazine m1 = new Magazine(generateRef(), "Mode", "magazine", "Theme", "Grazia");
 
-        Vector<Item> v = new Vector<>();
-        String fileName = "/Users/nviaud/Documents/EPSI/Java/Mediateque/data/item.txt";
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName));
+        String fileName = args[1];
 
-        v.add(b1);
-        v.add(cd1);
-        v.add(dvd1);
-        v.add(m1);
+        if(args[0] == "1") {
+            try{
+                Mapper mapper = new Mapper();
 
-        out.writeObject(v);
-        out.close();
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName));
-        v = (Vector<Item>)in.readObject();
-        for(Item i: v) {
-            System.out.println(i.toString());
-        }
-        in.close();
-        
-        
-        try{
+                List<Book> allBooks = mapper.bookMapper();
+                List<CD> allCD = mapper.cdMapper();
+                List<DVD> allDVD = mapper.dvdMapper();
+                List<Magazine> allMagazine = mapper.magazineMapper();
 
+                allBooks.forEach(System.out::println);
 
-            Mapper mapper = new Mapper();
+                List<Item> allItems = new ArrayList<>();
+                allItems.addAll(allBooks);
+                allItems.addAll(allCD);
+                allItems.addAll(allDVD);
+                allItems.addAll(allMagazine);
 
-            List<Book> allBooks = mapper.bookMapper();
+                writeObject(allItems, fileName);
 
-            System.out.println(allBooks.isEmpty());
-
-            allBooks.forEach(System.out::println);
-
-        } catch (Exception e){
-            e.printStackTrace();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        } else if(args[0] == "2") {
+            List<Item> allItems = readObject(fileName);
+            // Carlos fait ton travail
         }
     }
 
+    public static String generateRef() {
+        return UUID.randomUUID().toString();
+    }
+
+    public static void writeObject(List<Item> items, String fileName) throws IOException {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName));
+        out.writeObject(items);
+        out.close();
+    }
+
+    public static List<Item> readObject(String fileName) throws IOException, ClassNotFoundException{
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName));
+        List<Item> l = (List<Item>)in.readObject();
+        for(Item i: l) {
+            System.out.println(i.toString());
+        }
+        in.close();
+        return l;
+    }
 }
 
-public static String generateRef() {
-    return UUID.randomUUID().toString();
-}

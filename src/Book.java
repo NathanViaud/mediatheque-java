@@ -1,7 +1,6 @@
 import java.io.Serializable;
 
 public class Book extends Empruntable implements Serializable {
-    private int id;
     private String author;
     private String genre;
 
